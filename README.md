@@ -8,6 +8,7 @@
 
    - Git
    - Fish (shell)
+   - zoxide (smarter cd command)
    - Alacritty (terminal emulator)
    - tmux (terminal multiplexer)
    - QTile (Window manager)
@@ -28,5 +29,6 @@
    ### Fish, Tmux, Nvim, Alacritty, etc. to ~/.config
 
    ```console
+   cd .dotfiles
    stow .
    ```

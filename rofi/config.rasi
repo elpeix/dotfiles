@@ -179,6 +179,4 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
-//@theme "/usr/share/rofi/themes/Pop-Dark.rasi"
-// @theme "/usr/share/rofi/themes/rounded-gray-dark.rasi"
-@theme "/home/cesc/.local/share/rofi/themes/rounded-gray-dark.rasi"
+@theme "~/.config/rofi/rofi-themes-collection/themes/rounded-gray-dark.rasi"
