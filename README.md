@@ -9,15 +9,19 @@
    - Git
    - Fish (shell)
    - zoxide (smarter cd command)
+   - fzf (search all in terminal)
    - Alacritty (terminal emulator)
    - tmux (terminal multiplexer)
+     - [tmux plugins](https://github.com/tmux-plugins/tpm)
    - QTile (Window manager)
    - rofi (system menus)
    - i3lock (screen locker)
    - picom (compositor for X)
-   - nvim (editor)
-   - lxappearance
-   - FiraCode Nerd Font
+   - neovim (editor)
+   - lazygit (awesome git in terminal)
+   - lxappearance (gtk themes, icons, cursor)
+     - Icons: papirus
+   - Nerd Fonts
 
 3. Clone dotfiles repo to home directory.
 
