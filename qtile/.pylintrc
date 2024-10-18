@@ -1,0 +1,15 @@
+[MISCELLANEOUS]
+
+notes=FIXME,XXX,TODO
+
+[MESSAGES CONTROL]
+
+disable=
+    C0103, # Invalid name
+    C0111, # Missing docstring
+    C0112, # Empty docstring
+    C0113, # Missing function docstring
+    C0114, # Missing module docstring
+    W0621, # Redefining name %r from outer scope (line %s)
+    broad-except,
+    too-few-public-methods

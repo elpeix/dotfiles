@@ -1,0 +1,17 @@
+[shell]
+program = "/bin/fish"
+args = [ "--command=tmux" ]
+
+[window]
+dynamic_padding = true
+decorations = "Full"
+dynamic_title = true
+opacity = 0.97
+
+[font]
+normal = { family="SauceCodePro Nerd Font", style="regular"}
+size = 10
+
+[mouse]
+hide_when_typing = true
+

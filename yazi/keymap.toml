@@ -1,0 +1,14 @@
+[[manager.prepend_keymap]]
+on   = [ "g", "b" ]
+run  = "cd ~/Baixades"
+desc = "Cd to ~/Baixades"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/Documents"
+desc = "Cd to ~/Documents"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "w" ]
+run  = "cd ~/Documents/workspaces"
+desc = "Cd to ~/Documents/workspaces"
