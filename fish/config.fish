@@ -15,6 +15,7 @@ end
 # Alias
 
 ## System
+alias hostname="hostnamectl hostname"
 alias dup="sudo zypper dup"
 alias install="sudo zypper install"
 alias fzb='fzf --preview="bat --color=always {}"'

@@ -17,6 +17,7 @@
    - picom (compositor for X)
    - nvim (editor)
    - lxappearance
+   - FiraCode Nerd Font
 
 3. Clone dotfiles repo to home directory.
 

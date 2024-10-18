@@ -1,6 +1,6 @@
 [shell]
 program = "/bin/fish"
-args = [ "--command=tmux" ]
+args = ["--command=tmux"]
 
 [window]
 dynamic_padding = true
@@ -9,9 +9,9 @@ dynamic_title = true
 opacity = 0.97
 
 [font]
-normal = { family="SauceCodePro Nerd Font", style="regular"}
+# normal = { family="SauceCodePro Nerd Font", style="regular"}
+# normal = { family="FiraCode Nerd Font", style="regular"}
 size = 10
 
 [mouse]
 hide_when_typing = true
-
