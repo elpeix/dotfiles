@@ -40,6 +40,7 @@ WALLPAPERS = [
 ]
 
 SCREEN_LOCK_IMAGE = os.path.expanduser("~/.config/qtile/wallpapers/wallpaper.png")
+ICON_THEME_PATH = "/usr/share/icons/Paper"
 
 BROWSER = "firefox"
 TERMINAL = "alacritty"
@@ -272,7 +273,7 @@ def get_task_list():
         urgent_border=COLOR_URGENT,
         icon_size=14,
         theme_mode="preferred",
-        theme_path="/usr/share/icons/Paper",
+        theme_path=ICON_THEME_PATH,
         spacing=2,
         markup_floating='<span foreground="orange">{} </span>',
         markup_minimized='<span foreground="grey">{} </span>',

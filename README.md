@@ -21,7 +21,7 @@
    - lazygit (awesome git in terminal)
    - lxappearance (gtk themes, icons, cursor)
      - Icons: papirus
-   - Nerd Fonts
+   - [Nerd Fonts](https://www.nerdfonts.com/)
 
 3. Clone dotfiles repo to home directory.
 
