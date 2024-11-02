@@ -3,8 +3,7 @@
 ## Codecs
 
 ```console
-sudo zypper install --allow-vendor-change --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec vlc-codecs
-sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
+sudo zypper addrepo -cfp 99 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
 sudo zypper dist-upgrade --from packman --allow-vendor-change
 sudo zypper install --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec vlc-codecs
 ```
@@ -20,4 +19,10 @@ Create file to /etc/environment
 
 ```text
 GTK_THEME=Adwaita-dark
+```
+
+## Dev packages
+
+```console
+sudo zypper install --type pattern devel_basis
 ```

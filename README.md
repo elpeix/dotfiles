@@ -12,9 +12,16 @@
    - fzf (search all in terminal)
    - Alacritty (terminal emulator)
    - tmux (terminal multiplexer)
+
      - [tmux plugins](https://github.com/tmux-plugins/tpm)
+
+       ```console
+       git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+       ```
+
    - QTile (Window manager)
    - rofi (system menus)
+     - Some icons in powermenu.sh require rewrite from feather.ttf
    - i3lock (screen locker)
    - picom (compositor for X)
    - neovim (editor)
