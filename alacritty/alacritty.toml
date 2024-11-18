@@ -1,6 +1,6 @@
-[shell]
-program = "/bin/fish"
-args = ["--command=tmux"]
+[terminal.shell]
+program = "fish"
+args = [ "--command=tmux" ]
 
 [window]
 dynamic_padding = true
