@@ -1,0 +1,40 @@
+! Use a nice truetype font and size by default... 
+xterm*faceName: SauceCodePro Nerd Font
+xterm*faceSize: 10
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+! I like a LOT of scrollback...
+xterm*savelines: 16384
+
+! double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! DOS-box colours...
+xterm*foreground: rgb:c0/bf/bc
+xterm*background: rgb:20/20/20
+xterm*color0: rgb:20/20/20
+xterm*color1: rgb:a5/1d/2d
+xterm*color2: rgb:4e/9a/06
+xterm*color3: rgb:c4/a0/00
+xterm*color4: rgb:34/65/a4
+xterm*color5: rgb:75/50/7b
+xterm*color6: rgb:06/99/9a
+xterm*color7: rgb:d3/d7/cf
+xterm*color8: rgb:55/57/53
+xterm*color9: rgb:e0/1b/24
+xterm*color10: rgb:8a/e2/34
+xterm*color11: rgb:fc/e9/4f
+xterm*color12: rgb:73/9f/cf
+xterm*color13: rgb:ad/7f/a8
+xterm*color14: rgb:34/e2/e2
+xterm*color15: rgb:ee/ee/ec
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: false
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
