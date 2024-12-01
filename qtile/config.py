@@ -12,6 +12,7 @@ from libqtile.widget import (
     CPU,
     CurrentLayoutIcon,
     GroupBox,
+    Image,
     Memory,
     Prompt,
     Sep,
@@ -51,6 +52,7 @@ SCREEN_LOCKER = f"i3lock -t -i {SCREEN_LOCK_IMAGE}"
 SYSTEM_MONITOR = "alacritty -e btop"
 LAUNCHER = os.path.expanduser("~/.config/rofi/launchers/type-3/launcher.sh")
 POWER_MENU = os.path.expanduser("~/.config/rofi/powermenu/type-2/powermenu.sh")
+VOLUME_APP = "pavucontrol"
 FLOATING_WINDOWS = ("nm-connection-editor", "galculator")
 
 
@@ -337,41 +339,47 @@ def get_main_widgets():
         Systray(background=LIGHT_GREY),
         # get_text_box("", LIGHT_GREY, DARK_GREY),
         get_separator(LIGHT_GREY),
-        # Volume(
-        #     # emoji=True,
-        #     background=LIGHT_GREY,
-        #     theme_path="/usr/share/icons/Papirus-Dark",
-        # ),
-        Volume(emoji=False, background=LIGHT_GREY, fmt="VOL: {}"),
+        Volume(
+            emoji=True,
+            emoji_list=[" ", " ", " ", " "],
+            background=LIGHT_GREY,
+            mouse_callbacks={"Button3": lazy.spawn(VOLUME_APP)},
+        ),
+        Volume(
+            emoji=False,
+            background=LIGHT_GREY,
+            fmt="VOL: {}",
+            mouse_callbacks={"Button3": lazy.spawn(VOLUME_APP)},
+        ),
         get_separator(LIGHT_GREY),
         # Notify(fmt=" 🔥 {} ", parse_text=parse_notification),
         # PulseVolume(fmt=" {}", emoji=True, volume_app="pavucontrol"),
         # PulseVolume(volume_app="pavucontrol"),        get_separator(LIGHT_GREY),
         # get_separator(LIGHT_GREY),
-        # Image(
-        #     filename="~/.config/qtile/cpu.svg",
-        #     background=LIGHT_GREY,
-        #     margin=4,
-        #     mouse_callbacks={"Button1": lazy.spawn("SYSTEM_MONITOR")},
-        # ),
+        Image(
+            filename="~/.config/qtile/cpu.svg",
+            background=LIGHT_GREY,
+            margin=4,
+            mouse_callbacks={"Button1": lazy.spawn(SYSTEM_MONITOR)},
+        ),
         CPU(
             format="CPU: {load_percent:2.0f}% ",
             update_interval=2,
             background=LIGHT_GREY,
             mouse_callbacks={"Button1": lazy.spawn(SYSTEM_MONITOR)},
         ),
-        # Image(
-        #     filename="~/.config/qtile/mem.svg",
-        #     background=LIGHT_GREY,
-        #     margin=4,
-        #     mouse_callbacks={"Button1": lazy.spawn("SYSTEM_MONITOR")},
-        # ),
+        Image(
+            filename="~/.config/qtile/mem.svg",
+            background=LIGHT_GREY,
+            margin=4,
+            mouse_callbacks={"Button1": lazy.spawn(SYSTEM_MONITOR)},
+        ),
         Memory(
             format="MEM: {MemPercent:2.0f}% | {SwapPercent:2.0f}% ",
             # format="MEM: {MemPercent:2.0f}% ",
             update_interval=2,
             background=LIGHT_GREY,
-            mouse_callbacks={"Button1": lazy.spawn("SYSTEM_MONITOR")},
+            mouse_callbacks={"Button1": lazy.spawn(SYSTEM_MONITOR)},
         ),
         get_separator(LIGHT_GREY),
         get_separator(DARK_GREY),

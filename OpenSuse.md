@@ -21,8 +21,16 @@ Create file to /etc/environment
 GTK_THEME=Adwaita-dark
 ```
 
+Or other theme.
+
 ## Dev packages
 
 ```console
 sudo zypper install --type pattern devel_basis
+```
+
+## Network manager applet
+
+```console
+sudo zypper install NetworkManager-applet
 ```
