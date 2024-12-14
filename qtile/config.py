@@ -34,6 +34,8 @@ COLOR_SCREEN_FOCUS = "#00a466"
 COLOR_URGENT = "#004a2a"
 COLOR_WINDOW_FOCUS = "#004a2a"
 COLOR_WINDOW_FLOAT = "#00bd66"
+COLOR_TASK_FLOATING = "#00bd66"
+COLOR_TASK_MINIMIZED = "#777777"
 DATE_COLOR = "#667"
 
 WALLPAPERS = [
@@ -277,8 +279,8 @@ def get_task_list():
         theme_mode="preferred",
         theme_path=ICON_THEME_PATH,
         spacing=2,
-        markup_floating='<span foreground="orange">{} </span>',
-        markup_minimized='<span foreground="grey">{} </span>',
+        markup_floating=f'<span foreground="{COLOR_TASK_FLOATING}">{{}} </span>',
+        markup_minimized=f'<span foreground="{COLOR_TASK_MINIMIZED}">{{}} </span>',
         markup_focused="{} ",
         markup_normal="{} ",
         max_title_width=140,
