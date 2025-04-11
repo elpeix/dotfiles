@@ -1,10 +1,8 @@
 local cmp = require("cmp")
 
--- if true then
---   return {}
--- end
 return {
   "hrsh7th/nvim-cmp",
+  ---@class cmp.Config
   opts = {
     enabled = function()
       local context = require("cmp.config.context")
@@ -31,6 +29,16 @@ return {
         s = cmp.mapping.confirm({ select = true }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
       }),
+      -- ["<Esc>"] = cmp.mapping.close(),
+      ["<Esc>"] = cmp.mapping(function(fallback)
+        if vim.fn.pumvisible() == 1 then
+          vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-e><Esc>", true, true, true), "n")
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+      ["<Up>"] = cmp.mapping.select_prev_item(),
+      ["<Down>"] = cmp.mapping.select_next_item(),
       ["<Tab>"] = cmp.mapping(function(fallback)
         local has_words_before = function()
           unpack = unpack or table.unpack
