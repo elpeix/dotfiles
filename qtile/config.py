@@ -57,6 +57,15 @@ POWER_MENU = os.path.expanduser("~/.config/rofi/powermenu/type-2/powermenu.sh")
 VOLUME_APP = "pavucontrol"
 FLOATING_WINDOWS = ("nm-connection-editor", "galculator")
 
+if qtile.core.name == "wayland":
+    from libqtile.backend.wayland import InputConfig
+
+    wl_input_rules = {
+        "type:keyboard": InputConfig(kb_layout="es"),
+        "type:mouse": InputConfig(natural_scroll=True),
+        "type:pointer": InputConfig(natural_scroll=True),
+    }
+
 
 def focus_previous_group(qtile):
     group = qtile.current_screen.group
@@ -177,7 +186,6 @@ def init_keys():
         Key([], "Scroll_Lock", lazy.spawn(screenlocker)),
         Key([mod], "t", lazy.spawn(screenlocker)),
         Key([mod], "r", lazy.spawncmd()),
-        Key([mod], "v", lazy.validate_config()),
         KeyChord(
             [mod],
             "x",
@@ -242,7 +250,7 @@ def init_floating_layout():
 
 def init_layouts():
     margin = 2
-    if len(qtile.core.conn.pseudoscreens) > 1:
+    if qtile.core.name == "X11" and len(qtile.core.conn.pseudoscreens) > 1:
         margin = 2
     kwargs = dict(
         margin=margin,
@@ -403,12 +411,15 @@ def get_additional_widgets():
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser("~/.config/qtile/autostart.sh")
+    name = "wautostart" if qtile.core.name == "wayland" else "autostart"
+    home = os.path.expanduser(f"~/.config/qtile/{name}.sh")
     subprocess.Popen([home])
 
 
 @hook.subscribe.client_new
 def set_floating(window):
+    if qtile.core.name == "wayland":
+        return
     try:
         if window.window.get_wm_class()[0] in FLOATING_WINDOWS:
             window.floating = True
