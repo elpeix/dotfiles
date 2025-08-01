@@ -11,7 +11,6 @@ if status is-interactive
     source $FLINE_PATH/themes/custom.fish
 end
 
-
 # Alias
 
 ## System
@@ -21,6 +20,7 @@ alias install="sudo zypper install"
 alias fzb='fzf --preview="bat --color=always {}"'
 alias nzb='nvim $(fzf --preview="bat --color=always {}")'
 alias vi='nvim'
+alias fup='flatpak update'
 
 ## Git
 alias gst='git status'
@@ -36,3 +36,9 @@ alias gcm='git commit -v'
 alias gbr='git branch'
 alias glg='git log --pretty=format:"%h %s" --graph'
 alias gth='git stash'
+
+## Others
+alias lg='lazygit'
+alias ni='npm i'
+alias nd='npm run dev'
+alias nb='npm run build:linux'
