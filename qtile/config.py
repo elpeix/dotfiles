@@ -10,7 +10,7 @@ from libqtile.lazy import lazy
 from libqtile.widget import (
     Clock,
     CPU,
-    CurrentLayoutIcon,
+    CurrentLayout,
     GroupBox,
     Image,
     Memory,
@@ -330,15 +330,29 @@ def get_separator(color: str = GREY):
 
 
 def get_base_widgets():
-    return [
-        CurrentLayoutIcon(scale=0.6, padding=8, padding_x=8, background=DARK_GREY),
-        # get_text_box("", DARK_GREY, LIGHT_GREY),
-        # get_separator(LIGHT_GREY),
-        get_group_box(),
-        # get_text_box("", LIGHT_GREY, GREY),
-        # get_separator(),
-        get_task_list(),
-    ]
+    try:
+        from libqtile.widget import CurrentLayoutIcon
+
+        return [
+            CurrentLayoutIcon(scale=0.6, padding=8, background=DARK_GREY),
+            get_group_box(),
+            get_task_list(),
+        ]
+    except ImportError:
+        return [
+            CurrentLayout(
+                scale=0.6,
+                padding=8,
+                background=DARK_GREY,
+                mode="icon",
+            ),
+            # get_text_box("", DARK_GREY, LIGHT_GREY),
+            # get_separator(LIGHT_GREY),
+            get_group_box(),
+            # get_text_box("", LIGHT_GREY, GREY),
+            # get_separator(),
+            get_task_list(),
+        ]
 
 
 def get_main_widgets():
@@ -427,6 +441,34 @@ def set_floating(window):
         pass
 
 
+def animate_opacity(window, start, end, steps=10, delay=0.01):
+    diff = (end - start) / steps
+    current = start
+
+    def step():
+        nonlocal current
+        current += diff
+        if (diff > 0 and current >= end) or (diff < 0 and current <= end):
+            window.opacity = end
+            return
+        window.opacity = current
+        qtile.call_later(delay, step)
+
+    window.opacity = start
+    qtile.call_later(delay, step)
+
+
+@hook.subscribe.client_focus
+def client_focus(client):
+    if qtile.core.name != "wayland":
+        return
+    for group in qtile.groups:
+        for window in group.windows:
+            animate_opacity(window, 1, 0.97, 8)
+
+    animate_opacity(client, 0.97, 1)
+
+
 @hook.subscribe.startup_complete
 def set_logging():
     if DEBUG:
@@ -470,7 +512,10 @@ if __name__ in ["config", "__main__"]:
     screens = [
         Screen(
             top=bar.Bar(
-                widgets=get_main_widgets(), size=24, opacity=0.7, margin=[3, 2, 1, 2]
+                widgets=get_main_widgets(),
+                size=24,
+                opacity=0.9 if qtile.core.name == "wayland" else 0.7,
+                margin=[3, 2, 1, 2],
             ),
             wallpaper=wallpapers[0],
         ),
